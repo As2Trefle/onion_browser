@@ -1,0 +1,7 @@
+.bb{ position:absolute; inset:0; display:grid; grid-template-rows:auto 1fr; gap:1rem; overflow:hidden; }
+.bb__title{ margin:0; color:#fff; font-size:1.25rem; }
+.bb__hint{ color:rgba(255,255,255,.85); }
+.bb__grid{ overflow:auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.bb__card{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:.8rem; padding:.8rem; }
+.bb__card h3{ margin:0 0 .25rem 0; font-size:1rem; color:#fff; }
+.bb__card p{ margin:0; color:rgba(255,255,255,.85); font-size:.95rem; }
