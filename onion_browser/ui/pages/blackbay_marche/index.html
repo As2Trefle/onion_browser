@@ -1,0 +1,40 @@
+<section class="bb">
+  <!-- Nav principale (Marché actif) -->
+  <nav class="bb__nav" role="navigation">
+    <div class="bb__brand">
+      <img class="bb__logo" src="./assets/icon-blackbay.png" alt="" />
+      <span class="bb__brandText">
+        <span class="black">Black</span><span class="bay">Bay</span>
+      </span>
+    </div>
+
+    <div class="bb__sep" aria-hidden="true"></div>
+
+    <ul class="bb__tabs" id="bb-tabs">
+      <li class="bb__tab"><a href="#" data-tab="drogues">Drogues</a></li>
+      <li class="bb__tab"><a href="#" data-tab="armes">Armes</a></li>
+      <li class="bb__tab bb__tab--active"><a href="#" data-tab="marche">Marché</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sous-nav blanche -->
+  <nav class="bbSub" role="navigation">
+    <ul class="bbSub__left" id="bb-subtabs">
+      <li class="bbSub__tab bbSub__tab--active"><a href="#" data-sub="market">Marché</a></li>
+      <li class="bbSub__tab"><a href="#" data-sub="annonces">Annonces</a></li>
+      <li class="bbSub__tab"><a href="#" data-sub="ventes">Mes ventes</a></li>
+    </ul>
+
+    <a href="#" class="bbSub__cart" data-sub="cart">
+      Panier (<span data-cart-count>0</span>)
+    </a>
+  </nav>
+
+  <!-- Barre de recherche locale (collée sous la sous-nav) -->
+  <div class="bbFilterBar" id="bb-filterbar">
+    <input type="search" id="bb-filter-input" placeholder="Rechercher un article…" autocomplete="off" />
+  </div>
+
+  <!-- Contenu -->
+  <div class="bbMarket__content" id="bb-content"></div>
+</section>
