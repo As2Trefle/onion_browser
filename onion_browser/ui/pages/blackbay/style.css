@@ -1,0 +1,119 @@
+/* ========= BlackBay — page d’entrée (fond animé dans le main) ========= */
+
+:root{
+  --bb-nav-bg:#1b1e24;
+  --bb-accent:#ff8a00;
+}
+
+/* Masquer uniquement le branding/Logo ONION du header global (pas la barre) */
+.route-blackbay .appRow [class*="logo"],
+.route-blackbay .appRow [class*="brand"],
+.route-blackbay .appRow img[src*="onion"],
+.route-blackbay .appRow img[src*="logo-onion"],
+.route-blackbay .appRow img[src*="icon-onion"]{
+  display:none !important;
+}
+
+/* Wrapper BlackBay : nav + contenu scrollable
+   FULL-BLEED au niveau de la SECTION (supprime les bandes violettes) */
+.bb.bbHome{
+  display:grid;
+  grid-template-rows:auto 1fr;
+  height:100%;
+  min-height:0;
+  background:transparent;
+  position:relative;
+
+  /* >>> bord à bord viewport <<< */
+  margin-left:  calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* ===================== NAVBAR SOMBRE ===================== */
+.bb__nav{
+  position: sticky; top:0; z-index:2;
+  background: var(--bb-nav-bg); color:#fff;
+  display:flex; align-items:center; gap:.75rem;
+
+  /* plus de marges négatives ici : la section est déjà full-bleed */
+  margin:0;
+
+  /* respect des safe areas */
+  padding:.6rem max(var(--space-4), env(safe-area-inset-right))
+          .6rem max(var(--space-4), env(safe-area-inset-left));
+  border-bottom:1px solid rgba(255,255,255,.08);
+  box-sizing:border-box;
+}
+
+.bb__brand{ display:flex; align-items:center; gap:.5rem; }
+.bb__logo{ width:35px; height:35px; object-fit:contain; }
+.bb__brandText{ font-weight:800; letter-spacing:.2px; white-space:nowrap; }
+.bb .black{ color:var(--bb-accent); }
+.bb .bay{ color:#fff; }
+.bb__sep{ width:1px; height:1.25rem; background:rgba(255,255,255,.15); margin-left:.35rem; }
+.bb__tabs{ list-style:none; margin:0; padding:0; display:flex; gap:.35rem; }
+.bb__tab a{
+  display:inline-block; text-decoration:none; color:#fff; opacity:.9;
+  font-size:.9rem; padding:.28rem .5rem; border-radius:.4rem;
+}
+.bb__tab--active a{ background:rgba(255,255,255,0.12); }
+
+/* ============== CONTENU + ANIMATION ============== */
+.bbHome__content{
+  position:relative; z-index:1;
+  overflow:auto; height:100%; min-height:0;
+
+  /* pas de débord local : la section est déjà full-bleed */
+  margin:0;
+
+  /* air intérieur + safe areas */
+  padding-left:  max(var(--space-4), env(safe-area-inset-left));
+  padding-right: max(var(--space-4), env(safe-area-inset-right));
+  padding-top:16px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(--omnibox-h, 84px) + 24px);
+
+  scrollbar-width:none; -ms-overflow-style:none;
+  box-sizing:border-box;
+}
+.bbHome__content::-webkit-scrollbar{ width:0; height:0; }
+
+/* Canvas limité au main, couvre toute sa zone */
+#bb-bg{
+  position:absolute;
+  inset:0;            /* remplit toute la zone de .bbHome__content */
+  width:100%;
+  height:100%;
+  background:#ddd;    /* fallback */
+  z-index:0;          /* derrière le contenu */
+  pointer-events:none;
+}
+
+/* Carte de bienvenue lisible sur l’anim */
+.bbWelcome{
+  position:relative; z-index:1;     /* au-dessus du canvas */
+  max-width: 720px;
+  margin: 28px auto 0;
+  background: rgba(255,255,255,.88);
+  color:#111;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:.6rem;
+  padding:1rem 1.25rem;
+  backdrop-filter: blur(2px);
+}
+.bbWelcome h3{
+  margin:0 0 .5rem 0;
+  font-weight:800;
+  color:#111;
+  text-align:center;
+}
+.bbWelcome .badge{
+  display:inline-block;
+  padding:.1rem .4rem;
+  border:1px solid #ffd199;
+  border-radius:9999px;
+  background:#fff;
+  font-weight:800;
+}
+
+/* Petit souffle au-dessus de l’omnibox */
+.bbBottomSpacer{ height:.5rem; }
