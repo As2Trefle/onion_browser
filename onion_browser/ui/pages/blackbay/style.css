@@ -1,0 +1,163 @@
+/* ===============================
+   BlackBay — Styles de page (full)
+   =============================== */
+
+/* Variables propres à BlackBay */
+:root{
+  --bb-bg: #ffffff;      /* fond principal de la page BlackBay */
+  --bb-nav-bg: #1b1e24;  /* gris-noir de la navbar */
+  --bb-accent: #ff8a00;  /* orange pour "Black" */
+}
+
+/* --- Intégration layout global (route BlackBay uniquement) --- */
+
+/* Zone centrale plein-bleed + fond blanc dédié */
+.route-blackbay .page-area{
+  left: 0 !important;
+  right: 0 !important;
+  background: var(--bb-bg);
+}
+
+/* Cache le logo global de l’app uniquement sur BlackBay */
+.route-blackbay .appRow{
+  display: none !important;
+}
+
+/* Neutralise le padding latéral global UNIQUEMENT pour BlackBay */
+.route-blackbay .app-root{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Conteneur BlackBay : navbar (auto) + zone principale (1fr) */
+.route-blackbay .bb{
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100%;
+  padding-left:  max(var(--space-4), env(safe-area-inset-left)) !important;
+  padding-right: max(var(--space-4), env(safe-area-inset-right)) !important;
+  padding-bottom: 0 !important; /* pas de décalage inutile pour le centrage */
+}
+
+/* Utilitaire : toute mention "Black" avec l’accent orange */
+.bb .black { color: var(--bb-accent); }
+
+/* =================
+   NAVBAR (plein-bleed)
+   ================= */
+.bb__nav{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bb-nav-bg);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+
+  /* Pleine largeur : on “mord” sur le padding du conteneur */
+  margin-left: calc(var(--space-4) * -1);
+  margin-right: calc(var(--space-4) * -1);
+
+  /* Et on remet le même padding interne */
+  padding: .6rem var(--space-4);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0;
+}
+
+.route-blackbay .bb__nav{
+  /* on “mange” le padding parent avec des marges négatives calculées */
+  margin-left:  calc(max(var(--space-4), env(safe-area-inset-left)) * -1) !important;
+  margin-right: calc(max(var(--space-4), env(safe-area-inset-right)) * -1) !important;
+
+  /* mais on garde le même padding interne pour aligner le contenu */
+  padding-left:  max(var(--space-4), env(safe-area-inset-left)) !important;
+  padding-right: max(var(--space-4), env(safe-area-inset-right)) !important;
+
+  border-radius: 0;  /* flush aux bords */
+  width: auto;      /* s'assure qu'elle s'étire correctement */
+}
+.route-blackbay .bb, 
+.route-blackbay .bb * { box-sizing: border-box; }
+
+.bb__brand{ display:inline-flex; align-items:center; gap:.5rem; }
+.bb__logo{ width:35px; height:35px; object-fit:contain; }
+.bb__brandText{ font-weight:800; letter-spacing:.2px; }
+.bb .black{ color:var(--bb-accent); }
+.bb__sep{ width:1px; height:1.25rem; background:rgba(255,255,255,.15); }
+.bb__tabs{ list-style:none; margin:0; padding:0; display:flex; gap:.35rem; flex-wrap:wrap; }
+.bb__tab a{ display:inline-block; text-decoration:none; color:#fff; opacity:.9; font-size:.9rem; padding:.28rem .5rem; border-radius:.4rem; }
+.bb__tab--active a{ background:rgba(255,255,255,0.12); }
+
+/* ==========================
+   MAIN d’accueil (message)
+   ========================== */
+.bb__main{
+  display: grid;
+  place-content: center;   /* centre vertical + horizontal */
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* Box d’accueil : fond blanc + texte noir, sobre */
+.bb__msg{
+  width: 100%;
+  max-width: 560px;
+  background: #ffffff;
+  color: #111213;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;      /* rectangle classique (mets 0 si tu veux carré) */
+  padding: 1rem 1.2rem;
+  line-height: 1.45;
+  font-size: .98rem;
+  margin: 0 auto;          /* centre horizontalement */
+  text-align: center;      /* texte centré à l’intérieur */
+}
+.bb__msg .bb__intro{
+  margin: 0 0 .4rem 0;
+  font-weight: 700;
+}
+
+/* Badge ovale “Black Bay” (sobre) */
+.bb__badge{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .25rem;
+  padding: .15rem .6rem;
+  border-radius: 9999px;   /* ovale/pill */
+  background: #f6f7f8;     /* fond très léger */
+  border: 1px solid #dcdfe3;
+  color: #111213;          /* “Bay” en noir */
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ==========================
+   (Optionnel) Grille d’items
+   ========================== */
+.bb__grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: .75rem;
+  margin-top: 1rem;
+}
+
+.bb__card{
+  background: #111318;  /* cartes sombres sur fond blanc */
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: .8rem;
+  padding: .9rem;
+  color: #e9e9e9;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+.bb__card h3{
+  margin: 0 0 .35rem 0;
+  font-size: 1rem;
+  color: #fff;
+}
+.bb__card p{
+  margin: 0;
+  font-size: .95rem;
+  color: rgba(255,255,255,.9);
+}

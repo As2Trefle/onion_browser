@@ -1,0 +1,16 @@
+.search{
+  position:absolute; inset:0;
+  display:grid; grid-template-rows:auto 1fr; gap:1rem;
+  padding-top:.25rem; overflow:hidden;
+}
+.search__q{ margin:0; font-size:1.15rem; color:#fff; }
+.search__meta{ color:rgba(255,255,255,.85); }
+
+.results{ list-style:none; margin:0; padding:0; overflow:auto; }
+.results li{
+  padding:.9rem 1rem; background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12); border-radius:.8rem; margin-bottom:.65rem;
+}
+.results .r__url{ color:rgba(255,255,255,.85); font-size:.85rem; margin-bottom:.25rem; }
+.results .r__title{ margin:0; font-size:1.05rem; color:#fff; }
+.results .r__desc{ margin:.25rem 0 0 0; color:rgba(255,255,255,.85); font-size:.95rem; }
