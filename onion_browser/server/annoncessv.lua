@@ -41,7 +41,7 @@ QBCore.Functions.CreateCallback('onion_browser:annonces:create', function(source
         VALUES (:citizenid, :title, :message, :contact, :author, NOW())
     ]]
 
-    if hasOxMySQL() then
+    if hasOxMySQL then
         exports.oxmysql:insert(sql, params, function(insertId)
             cb(true, insertId or 0)
         end)
@@ -66,16 +66,15 @@ QBCore.Functions.CreateCallback('onion_browser:annonces:listMine', function(sour
         ORDER BY id DESC
         LIMIT 200
     ]]
-    local params = { citizenid }
 
     local handler = function(rows)
         cb({ ok = true, rows = rows or {} })
     end
 
-    if hasOxMySQL() then
-        exports.oxmysql:execute(sql, params, handler)
+    if hasOxMySQL then
+        exports.oxmysql:execute(sql, { citizenid }, handler)
     else
-        MySQL.Async.fetchAll(sql, params, handler)
+        MySQL.Async.fetchAll(sql, { citizenid }, handler)
     end
 end)
 
@@ -93,7 +92,7 @@ QBCore.Functions.CreateCallback('onion_browser:annonces:listAll', function(_, cb
         cb({ ok = true, rows = rows or {} })
     end
 
-    if hasOxMySQL() then
+    if hasOxMySQL then
         exports.oxmysql:execute(sql, {}, handler)
     else
         MySQL.Async.fetchAll(sql, {}, handler)
