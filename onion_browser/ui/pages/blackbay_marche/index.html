@@ -1,0 +1,43 @@
+<section class="bb">
+  <nav class="bb__nav" role="navigation">
+    <div class="bb__brand">
+      <img class="bb__logo" src="./assets/icon-blackbay.png" alt="" />
+      <span class="bb__brandText"><span class="black">Black</span><span class="bay">Bay</span></span>
+    </div>
+
+    <div class="bb__sep" aria-hidden="true"></div>
+
+    <ul class="bb__tabs" id="bb-tabs">
+      <li class="bb__tab"><a href="#" data-tab="drogues">Drogues</a></li>
+      <li class="bb__tab"><a href="#" data-tab="armes">Armes</a></li>
+      <li class="bb__tab bb__tab--active"><a href="#" data-tab="marche">Marché</a></li>
+    </ul>
+  </nav>
+
+  <nav class="bbSub" role="navigation">
+    <ul class="bbSub__left" id="bb-subtabs">
+      <li class="bbSub__tab bbSub__tab--active"><a href="#" data-sub="market">Marché</a></li>
+      <li class="bbSub__tab"><a href="#" data-sub="annonces">Annonces</a></li>
+      <li class="bbSub__tab"><a href="#" data-sub="ventes">Mes ventes</a></li>
+    </ul>
+
+    <a href="#" class="bbSub__cart" data-sub="cart">
+      Panier (<span data-cart-count>0</span>)
+    </a>
+  </nav>
+
+  <div class="bbAnnBar is-hidden" id="bb-annonces-bar">
+    <button type="button" class="bbBtn bbBtn--cta" id="btn-new-annonce">Mettre une annonce</button>
+    <a href="#" class="bbAnnBar__link" id="btn-my-annonces">Mes annonces</a>
+  </div>
+
+  <div class="bbVentesBar is-hidden" id="bb-ventes-bar">
+    <button type="button" class="bbBtn bbBtn--cta" id="btn-new-vente">Mettre en vente</button>
+  </div>
+
+  <div class="bbFilterBar" id="bb-filterbar">
+    <input type="search" id="bb-filter-input" placeholder="Rechercher un article..." autocomplete="off" />
+  </div>
+
+  <div class="bbMarket__content" id="bb-content"></div>
+</section>
