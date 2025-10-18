@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Onion Browser</title>
+
+  <script>
+    (function () {
+      const res = (window.resourceName && String(window.resourceName)) || 'onion_browser';
+      const base = document.createElement('base');
+      base.href = `https://cfx-nui-${res}/ui/`;
+      document.head.appendChild(base);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="styles/base.css" />
+</head>
+<body>
+  <div id="app" class="app-root">
+    <div class="safeHeader" aria-hidden="true"></div>
+
+    <div class="safeFooter" aria-hidden="true"></div>
+
+    <div class="appRow">
+      <img class="appRow__icon" src="assets/logo-onion.png" alt="Onion" />
+    </div>
+
+    <div id="page" class="page-area" aria-live="polite"></div>
+
+    <form class="omnibox" id="omnibox" role="search" autocomplete="off">
+      <div class="omnibox__wrap">
+        <img class="omnibox__icon" src="assets/icon-onion.jpg" alt="" />
+        <input id="omnibox-input" class="omnibox__input" type="text"
+               inputmode="search" spellcheck="false"
+               placeholder="Rechercher ou entrer une adresse" />
+        <button class="omnibox__go" type="submit" aria-label="Valider">⏎</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="scripts/router.js" defer></script>
+</body>
+</html>
