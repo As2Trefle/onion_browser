@@ -1,0 +1,40 @@
+<section class="bb">
+  <nav class="bb__nav" role="navigation">
+    <div class="bb__brand">
+      <img class="bb__logo" src="./assets/icon-blackbay.png" alt="" />
+      <span class="bb__brandText">
+        <span class="black">Black</span><span class="bay">Bay</span>
+      </span>
+    </div>
+
+    <div class="bb__sep" aria-hidden="true"></div>
+
+    <ul class="bb__tabs" id="bb-tabs">
+      <li class="bb__tab"><a href="#" data-tab="drogues">Drogues</a></li>
+      <li class="bb__tab bb__tab--active"><a href="#" data-tab="armes">Armes</a></li>
+      <li class="bb__tab"><a href="#" data-tab="marche">Marché</a></li>
+    </ul>
+  </nav>
+
+  <nav class="bbSub" role="navigation">
+    <ul class="bbSub__left" id="bb-subtabs">
+      <li class="bbSub__tab bbSub__tab--active"><a href="#" data-sub="materiaux">Matériaux</a></li>
+      <li class="bbSub__tab"><a href="#" data-sub="pieces">Pièces</a></li>
+
+      <li class="bbSub__filter is-hidden" id="bb-filter-wrap" aria-hidden="true">
+        <select id="bb-filter" class="bbFilter__select">
+          <option value="all">Toutes</option>
+          <option value="AK47">AK47</option>
+          <option value="AKU">AKU</option>
+          <option value="MicroSMG">MicroSMG</option>
+        </select>
+      </li>
+    </ul>
+
+    <a href="#" class="bbSub__cart" data-sub="cart">
+      Panier (<span data-cart-count>0</span>)
+    </a>
+  </nav>
+
+  <div class="bbDrug__content" id="bb-content"></div>
+</section>
